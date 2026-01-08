@@ -1,86 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>For My Love</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      font-family: "Georgia", serif;
-      color: #fff;
-    }
+<meta charset="UTF-8">
+<title>DOCUMENT</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    .card {
-      max-width: 600px;
-      padding: 40px;
-      background: rgba(0, 0, 0, 0.45);
-      border-radius: 16px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-      text-align: center;
-      animation: fadeIn 1.5s ease;
-    }
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
-    h1 {
-      margin-bottom: 20px;
-      font-size: 32px;
-      color: #ffb6c1;
-    }
+<style>
+/* ========== GLOBAL RESET ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    p {
-      font-size: 18px;
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
+body {
+  font-family: "Georgia", serif;
+  background: #000;
+  color: #fff;
+}
 
-    .signature {
-      margin-top: 30px;
-      font-size: 20px;
-      font-style: italic;
-      color: #ffd1dc;
-    }
+/* ========== SECTION 1 ========== */
+.work1 {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  padding: 40px 15px;
+}
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
+.card {
+  max-width: 700px;
+  width: 100%;
+  padding: 45px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+  animation: fadeUp 1.5s ease;
+}
+
+.card h1 {
+  font-size: 2.3rem;
+  color: #ffb6c1;
+  margin-bottom: 25px;
+}
+
+.card p {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  margin-bottom: 18px;
+  color: #f5f5f5;
+}
+
+.signature {
+  margin-top: 30px;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #ffd1dc;
+}
+
+/* ========== SECTION 2 ========== */
+.work2 {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a, #2c0f17);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 15px;
+  overflow: hidden;
+}
+
+/* Falling Hearts */
+.hearts-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hearts-bg span {
+  position: absolute;
+  top: -10%;
+  font-size: 22px;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
+.hearts-bg span:nth-child(1){left:10%;animation-duration:8s;}
+.hearts-bg span:nth-child(2){left:25%;animation-duration:11s;font-size:18px;}
+.hearts-bg span:nth-child(3){left:40%;animation-duration:7s;}
+.hearts-bg span:nth-child(4){left:55%;animation-duration:12s;font-size:26px;}
+.hearts-bg span:nth-child(5){left:70%;animation-duration:9s;}
+.hearts-bg span:nth-child(6){left:85%;animation-duration:13s;font-size:20px;}
+.hearts-bg span:nth-child(7){left:95%;animation-duration:8s;}
+.hearts-bg span:nth-child(8){left:5%;animation-duration:10s;}
+
+@keyframes fall {
+  from { transform: translateY(0) rotate(0); opacity: 0; }
+  10% { opacity: 0.8; }
+  to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+/* Card 2 */
+.card2 {
+  max-width: 600px;
+  width: 100%;
+  background: rgba(255,255,255,0.95);
+  color: #333;
+  padding: 45px 35px;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+  animation: fadeScale 2s ease;
+  z-index: 2;
+}
+
+.calligraphy {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.6rem;
+  color: #e63946;
+  margin-bottom: 20px;
+  animation: heartbeat 1.5s infinite;
+}
+
+.card2 p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 15px 0;
+}
+
+.heart {
+  font-size: 3rem;
+  margin: 20px 0;
+  animation: float 3s ease-in-out infinite;
+}
+
+button {
+  margin-top: 25px;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 35px;
+  background: linear-gradient(135deg, #e63946, #ff6b81);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 25px rgba(230,57,70,0.6);
+}
+
+/* Floating Side Hint */
+.right-click-box {
+  position: fixed;
+  left: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 14px 24px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.6rem;
+  font-style: italic;
+  color: #81000b;
+  background: rgba(255,255,255,0.15);
+  border-radius: 30px 10px;
+  cursor: pointer;
+  animation: pulse 2s infinite;
+  z-index: 3;
+}
+
+.right-click-box:hover {
+  background: rgba(230,57,70,0.8);
+  color: #fff;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(30px); }
+  to { opacity:1; transform: translateY(0); }
+}
+
+@keyframes fadeScale {
+  from { opacity:0; transform: scale(0.9); }
+  to { opacity:1; transform: scale(1); }
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes heartbeat {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 10px rgba(230,57,70,0.3); }
+  50% { box-shadow: 0 0 25px rgba(230,57,70,0.7); }
+}
+.work4 {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #e3f764, #d19541, #e5ff63);
+  padding: 40px 15px;
+  gap:4px;
+}
+.work4_text{
+  font-size:20px;
+  width:700px;
+  font-family:cursive;
+  margin-top:20px;
+  display:float;
+  float:right;
+  color:#2c0f17
+  
+}
+.work4_img{
+/* display:float;
+  float:left; */
+outline:1px  solid linear-gradient(135deg, #1a1a1a, #2c0f17);
+}
+/* ===== WORK 5 : FRIENDLY PROPOSAL ===== */
+.work5{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:40px 15px;
+  background:
+    linear-gradient(135deg, #e3fdfd, #f88ae2),
+    radial-gradient(circle at top, rgba(255,255,255,0.6), transparent 60%);
+}
+
+.card5{
+  max-width:820px;
+  width:100%;
+  background:#ffffff;
+  color:#333;
+  padding:45px 35px;
+  border-radius:22px;
+  text-align:center;
+  box-shadow:0 25px 50px rgba(0,0,0,0.25);
+  animation:fadeScale 1.2s ease;
+}
+
+.friendly-title{
+  font-size:2rem;
+  color:#495057;
+  margin-bottom:20px;
+}
+
+.card5 p{
+  font-size:1.05rem;
+  line-height:1.7;
+  margin:15px 0;
+}
+
+/* Buttons */
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-top:25px;
+}
+
+.work5 button{
+  padding:12px 26px;
+  border:none;
+  border-radius:30px;
+  font-size:1rem;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.work5 .yes{
+  background:#74c69d;
+  color:#fff;
+}
+
+.work5 .yes:hover{
+  background:#52b788;
+  transform:scale(1.08);
+}
+
+.work5 .no{
+  background:#e9ecef;
+  color:#333;
+}
+
+.work5 .no:hover{
+  transform:translateX(10px);
+}
+
+/* Result message */
+#result{
+  margin-top:25px;
+  font-weight:600;
+  color:#2d6a4f;
+  display:none;
+}
+
+/* Reuse animation */
+@keyframes fadeScale{
+  from{opacity:0;transform:scale(0.9);}
+  to{opacity:1;transform:scale(1);}
+}
+footer{
+  text-align:center;
+  padding:20px;
+  background:linear-gradient(135deg, #f48181, #ffd476);
+  color:#7a1818;
+  font-size:1.04rem;
+}
+
+</style>
+
+<script>
+function storeAnswer(answer){
+sessionStorage.setItem("work5Answer", answer);
+
+  showAnswer(answer);
+}
+
+function showAnswer(answer){
+  const result = document.getElementById("result");
+  const buttons = document.querySelectorAll(".work5 button");
+
+  buttons.forEach(btn => btn.disabled = true);
+
+  result.style.display = "block";
+  result.innerHTML =
+    answer === "YES"
+    ? "😊 That means a lot. Let’s go slow and enjoy this."
+    : "🙂 That’s completely okay. I respect that.";
+
+}
+
+/* Load saved answer */
+window.addEventListener("load", () => {
+  sessionStorage.removeItem("work5Answer");
+});
+</script>
+
 </head>
+
 <body>
 
+<section class="work1">
   <div class="card">
     <h1>My Love</h1>
-    <p>
-      Hello love,<br><br>
-      I truly don’t want this call to end. It feels like forever since we last talked,
-      and every moment without your voice makes me miss you more.
-      I miss our conversations, your presence, your warmth — <strong>you</strong>, completely.
+    <p>Hello love,<br><br>
+      I don’t want this call to end. Every second without your voice makes me miss you more.
     </p>
     <p>
-      Your company is my comfort, my calm, my happiness.
-      Being away from you feels like something essential is missing from my world.
+      Your presence is my comfort, my calm, my happiness.  
       Every heartbeat whispers your name.
     </p>
     <p>
-      I’m counting every second until the moment I see you again.
-      I can’t wait to meet you, to hold you close, and to feel whole once more.
+      I’m counting every moment until I can hold you again.
     </p>
+    <div class="signature">Forever yours ❤️</div>
+  </div>
+</section>
 
-    <div class="signature">
-      Forever yours ❤️
-    </div>
+<section class="work2">
+  <div class="hearts-bg">
+    <span>❤️</span><span>💖</span><span>💗</span><span>❤️</span>
+    <span>💘</span><span>💞</span><span>❤️</span><span>💖</span>
   </div>
 
-</body>
+  <div class="card2">
+    <h1 class="calligraphy">Sorry My Love ❤️</h1>
+    <p>I know I hurt you, and I regret it deeply.</p>
+    <p>You mean everything to me — just allow me to be there for you.</p>
+
+    <div class="heart">💖</div>
+
+    <button onclick="alert('I love you forever ❤️')">Wanna Patch Up?</button>
+
+    <p style="margin-top:20px;font-family:monospace;">
+      for(i = love; i &lt; eternity; i++)<br>
+      &nbsp;&nbsp;print("I love you ❤️");
+    </p>
+  </div>
+</section>
+<!-- <section class="work3">
+<div class="video">
+  <p>Some thing i can't express as AARAV. Cause i fear you, kya karu ab me isme Vishnu bhi apni wali se darta h.</p>
+  <ul style="none">
+  <li><a href=""></a></li>
+  </ul>
+</div>
+</section> -->
+<section class="work4">
+  <img class="work4_img" src="./TEC_29.webp" height="400px" width="700px" alt="image">
+  <p class="work4_text">you know this person? This is CLockwork from Ben 10 cartoon. Actually ben10 is my favourite since childhood. So, he has the power to manipulate time. i want to switch with this alien, when i am with you. You know why, so, that i can listen to your talks without any interruption.</p>
+</section>
+
+
+<section class="work5">
+  <div class="card5">
+    <h1 class="friendly-title">Hey, just Telling</h1>
+
+    <p>
+      I enjoy talking to you, spending time with you,
+      and honestly… things feel nicer when you’re around.
+
+    </p>
+
+    <p>
+      listen, I love you. And i know that i can't force you to feel the same. But i want to tell you one thing. i start having a phobia of your family now. but, then also i think that i can't leave you cause i adhaba-sadhama (extreme feeling of love that i can't i explain with a known word, so, i create a new word.) So,i want to ask you should i after becoming a IAS officer, may i ask your hand in marriage? if you allow me to do so. Not now ofcourse, but till then we would take our relations as it is now.? I am not asking you to love me, cause jab hona hoga ho jayega. but i do. I think, u thought all this as a game sue to my past ki har ladki se pyar ho jata h. Not this time, you are the last one. And i can't tolerate three things, a lie, a untold truth,and you with another guy.So, Please take care of my heart. Nano particles me tood rakha tha, har ladki ko dene ko ab jitne piece auro pe fenke the sab wapas le liye h and and i offer it to you, please sambhal lena,  it's bahut fragile. bahut muskil se joda h firse todna nhi chahta. Vo third thing ka dhyan rakhna. if you want to please pehle mujhe apne aap se bahut jyada nafrat kara lena, bilkul alag ho jana. fir shayad me bardast kar lu, varna andar se tut jaunga.   </p>
+     <p>may i say i love you to you after the bye in the call. pehle confirm ki tu hi h. mere jism se ruh nikal jayegi agr kisi aur ne sun liya to. tujhe reply nhi karna ofcourse karegi bhi nhi. vaise kabhi kabhi meri soul nikal ti rahti h, vo to vaise, like jab me tere pass baitha hu, then a strange magnetic kind of force you can say i feel, jaise kuch bahar nikal rha body se,  a force of attraction. fir mera brain usse control karta h, Umm mtlb hand aapne aap chalte h, tujhe notice bhi kiya hoga unhe. means want to fix your hairs jab vo eyes par aa jaate h. and legit is waqt teri voice sunai de rhe h. YEah so, i am completely mad now.... koi na pagal hi UPSC nikalte h.HMMMMMMMMMMMM.......me bhul gya kya likh rha tha. bye bye!!! yaad aayega to next section bana dunga. I love U.</p>
+    <p><strong>Would you like me to annoy you for the lifetime, like this? And Ofcourse, i can't give you gifts, and take you out on a date, cause i am not earning, and i don't think ki apni wife ko papa ke paiso ke gift du. SO, i can offer you my love, care, these messages, everything that beongs to Aarav give you. OHH!! but i can't give you back. </strong></p>
+     <div class="buttons">
+      <button class="yes" onclick="storeAnswer('YES')">hope me  1 Zero ki count kaam karde</button>
+      <button class="no" onclick="storeAnswer('NO')">hope me  10 zero ki count badha de</button>
+    </div>
+
+    <div id="result"></div>
+  </div>
+</section>
+<footer>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Agr pasand na aaye gussa aaye marne ka maan kare to Vishnu ka idea tha, uski galti h. AND if you like it, then hum dono ka idea tha, dono ne saath me kaam kiya h.
+<p align="center">site still under construction. will increase with time but the posted content will not change</p>
+</footer></body>
 </html>
+
