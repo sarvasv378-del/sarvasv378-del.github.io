@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forgive Me 🥺🌹</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: 'Poppins', sans-serif;
+      overflow-y: auto;
+      padding: 40px 0;
+    }
+
+    .card {
+      background: white;
+      border-radius: 25px;
+      padding: 30px 25px;
+      text-align: center;
+      width: 340px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      animation: float 3s ease-in-out infinite;
+      margin-bottom: 40px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      color: #ff4b5c;
+      margin-bottom: 15px;
+      font-size: 30px;
+      transition: opacity 0.5s ease;
+    }
+
+    p {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .cat {
+      width: 200px;
+      border-radius: 15px;
+      margin: 15px 0;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 22px;
+      border: none;
+      border-radius: 20px;
+      background: #ff4b5c;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    button:hover {
+      background: #ff2e44;
+      transform: scale(1.05);
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff4b5c;
+      font-size: 18px;
+      animation: fall 4s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) scale(0.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1 id="changingHeading">I am sorry, my soulmate</h1>
+
+    <p>
+      This little your heart is really, really sorry 🥺💔<br>
+      Please accept this rose and my apology.
+    </p>
+
+    <!-- Kneeling sorry cat -->
+    <img
+      class="cat"
+      src="https://media.tenor.com/n8ej9p8ksqgAAAAM/sorery-cat-sorry.gif"
+      alt="Sorry Cat"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Cat giving rose -->
+    <img
+      class="cat"
+      src="https://media1.tenor.com/m/jvsVBSMabc4AAAAC/rose-cat-give-give-rose-to-cat.gif"
+      alt="Cat Giving Rose"
+      referrerpolicy="no-referrer"
+    />
+
+    <button onclick="forgive()">Okay, I Forgive You 💕</button>
+
+    <p id="thanks" style="display:none; margin-top:15px; font-weight:600; color:#ff4b5c;">
+      Meow 🥹🐾 Thank you for forgiving this little your heart! ❤️
+    </p>
+  </div>
+
+  <script>
+    const phrases = [
+      'I am sorry, my soulmate',
+      'I am sorry, my better half',
+      'I am sorry, my life partner',
+      'I am sorry, my everything',
+      'I am sorry, my beloved'
+    ];
+
+    let index = 0;
+
+    setInterval(() => {
+      const heading = document.getElementById('changingHeading');
+      heading.style.opacity = 0;
+      setTimeout(() => {
+        index = (index + 1) % phrases.length;
+        heading.textContent = phrases[index];
+        heading.style.opacity = 1;
+      }, 500);
+    }, 2500);
+
+    function forgive() {
+      const msg = document.getElementById('thanks');
+      msg.style.display = 'block';
+    }
+
+    // Falling hearts
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerHTML = '❤';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }, 300);
+  </script>
+
+</body>
+</html>
